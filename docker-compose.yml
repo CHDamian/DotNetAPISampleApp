@@ -1,6 +1,12 @@
 services:
   dotnetapisampleapp:
-    image: ${DOCKER_REGISTRY-}dotnetapisampleapp
+    image: dotnetapisampleapp
     build:
       context: DotNetAPISampleApp
       dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    environment:
+      - ASPNETCORE_URLS=http://+:8080
+    restart: unless-stopped
