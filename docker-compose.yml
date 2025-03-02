@@ -1,0 +1,6 @@
+services:
+  dotnetapisampleapp:
+    image: ${DOCKER_REGISTRY-}dotnetapisampleapp
+    build:
+      context: DotNetAPISampleApp
+      dockerfile: Dockerfile
