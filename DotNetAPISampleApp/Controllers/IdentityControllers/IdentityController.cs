@@ -20,6 +20,8 @@ namespace DotNetAPISampleApp.Controllers.IdentityControllers
         }
 
         [HttpPost("register")]
+        [Authorize]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Register([FromBody] RegisterDto model)
         {
             var result = await _identityService.RegisterUserAsync(model.Email, model.Username, 
